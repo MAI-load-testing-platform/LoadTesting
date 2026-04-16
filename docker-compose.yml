@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: jmeter-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: jmeter
+      POSTGRES_USER: jmeter
+      POSTGRES_PASSWORD: jmeter
+    ports:
+      - "5431:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

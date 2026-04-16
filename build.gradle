@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.ka1amoor'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JMeter embedded
+    implementation "org.apache.jmeter:ApacheJMeter_core:5.6.3"
+    implementation "org.apache.jmeter:ApacheJMeter_http:5.6.3"
+    implementation "org.apache.jmeter:ApacheJMeter_functions:5.6.3"
+
+    // PostgreSQL JDBC
+    implementation 'org.postgresql:postgresql:42.7.3'
+
+    // CSV parser for JTL
+    implementation 'com.opencsv:opencsv:5.9'
+
+    // Tests
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+application {
+    mainClass = "org.ka1amoor.api.LoadEngineServer"
+}
+
